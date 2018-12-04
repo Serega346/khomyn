@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+     <head>
+	     <title>LAB 4</title>
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+         <meta charset="utf-8"/>
+     </head>
+     <body>
+             <div class="container">
+                  <h1>Bookmarks Manager</h1>
+	             <div class="row">
+		           <div class="col-xs-12 col-md-8">
+		                 <table id="bookmarks" class="table table-striped">
+		             <tr>
+		                 <th>ID</th>
+		                 <th>Name</th>
+		                 <th>Description</th>
+		                 <th>Link</th>
+						 <th>Delete</th>
+						 <th>Edit</th>
+		             </tr>
+                         </table>		  
+                         </div>
+	         <div class="col-xs-6 col-md-4">
+	                 <form id="newForm"
+	                     <p><input type="text" name="Name" id="nameIN" placeholder="Name" required></p>
+			             <p><input type="text" name="Desc" id="descIN" placeholder="Description" required></p>
+			             <p><input type="text" name="Link" id="linkIN" placeholder="Link" required></p>
+			             <p><input type="button"  id="sendIN" value="Form Bookmark"></p>
+						
+			         </form>
+		             </div>
+		         </div>
+	         </div>
+	     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script> 
+         $(document).ready(function() {
+			 var bookmarks = [{id:1, Name:"Google", Desk:"Search", Link:"https://www.google.com.ua"},{id:2, Name:"YouTube", Desk:"Video", Link:"https://www.youtube.com"},{id:3, Name:"Wikipedia", Desk:"Science", Link:"https://uk.wikipedia.org"}];
+			 
+			 for (var i = 0; i < bookmarks.length; i++) {
+			 
+  var element = "<tr><th>" + bookmarks[i].id + "</th>"+ 
+                "<th>" + bookmarks[i].Name + "</th>"+
+                "<th>" + bookmarks[i].Desk + "</th>"+
+                "<th> <a href='" + bookmarks[i].Link + "'>"+bookmarks[i].Link+"<th></th><th></th></th></tr>";
+				//"<th><button class='del'>Delete</button></th></tr>";
+  
+  $("#bookmarks").append(element);
+}
+
+sendIN.onclick = function(event) {
+    bookmarks.push({id:4, Name:$("#nameIN").val(), Desk:$("#descIN").val(), Link:$("#linkIN").val()});
+	//console.log(bookmarks.length);
+	var a = "<tr><th>" + bookmarks[i].id++ + "</th>"+ 
+                "<th>" + bookmarks[i].Name + "</th>"+
+                "<th>" + bookmarks[i].Desk + "</th>"+
+                "<th> <a href='" + bookmarks[i].Link + "'>"+bookmarks[i].Link+"</th>"+
+				"<th><button class='del'>Delete</button></th>"+
+				"<th><button class='edit'>Edit</button></th>";
+	$("#bookmarks").append(a);}
+	
+	
+        $(document).on("click", ".del", function(e) {
+		bookmarks[i].id--
+            e.preventDefault();
+            $(this).closest('tr').remove();
+			
+        });
+		
+   $(document).on("click", ".edit", function(event) {
+		 
+        });
+
+  });
+  
+
+
+  
+
+
+	
+	
+</script>
+ 
+
+</body>
+
+</html>
